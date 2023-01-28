@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { API_PEOPLE } from "../../constants/api";
 import { useState } from "react";
 import { getPeopleId, getPeopleImage } from "../../services/getPeopleData";
+import { withErrorApi } from "../../hoc-helper/withErrorApi";
 import PeopleList from "../../components/PeoplePage/PeopleList";
-const PeoplePage = () => {
+const PeoplePage = ({ setErrorApi }) => {
   const [people, setPeople] = useState(null);
-  // const [errorApi, setErrorApi] = useState(false);
   const getResource = async (url) => {
     const res = await getApiResource(url);
     if (res) {
@@ -32,20 +32,9 @@ const PeoplePage = () => {
   return (
     <>
       <h2>Navigation</h2>
-      <>{people && <PeopleList people={people} />}</>
+      {people && <PeopleList people={people} />}
     </>
   );
 };
 
-// return (
-//   <>
-//     {errorApi ? (
-//       <h2>Error Api</h2>
-//     ) : (
-//       <>{people && <PeopleList people={people} />}</>
-//     )}
-//   </>
-// );
-// };
-
-export default PeoplePage;
+export default withErrorApi(PeoplePage);
