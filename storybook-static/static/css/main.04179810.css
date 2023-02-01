@@ -1,5 +1,15 @@
+:root{
+    --color-white:#fff;
+    --color-black:#000;
+    --color-gray:#9c9c9c;
+    --font-size-small:14px;
+    --font-family-main:sans-serif;
+    --font-bold:600;
 
-.button{
+    --transition:.4s;
+}
+
+.UiButton_button__5jlYD{
     min-width: 100px;
     padding: 10px;
     border-radius: 3px;
@@ -11,26 +21,28 @@
     transition: var( --transition);
     cursor: pointer;
 }
-.button:disabled,
-.button:disabled:hover{
+.UiButton_button__5jlYD:disabled,
+.UiButton_button__5jlYD:disabled:hover{
     color: var(--color-gray);
     background-color: transparent;
     border-color: var(--color-gray);
     cursor: auto;
 }
-.dark{
+.UiButton_dark__838lE{
     border:1px solid var(--color-white);
     color:var(--color-white)
 }
-.dark:hover{
+.UiButton_dark__838lE:hover{
     background-color:var(--color-white);
     color: var(--color-black);
 }
-.light{
+.UiButton_light__b1iEa{
     border:1px solid var(--color-black);
     color:var(--color-black)
 }
-.light:hover{
+.UiButton_light__b1iEa:hover{
     background-color: var(--color-black);
     color: var(--color-white);
 }
+
+/*# sourceMappingURL=main.04179810.css.map*/
