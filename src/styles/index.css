@@ -8,10 +8,13 @@
 --color-violet:#ae72c2;
 
 --border-radius-small: 3px;
+--border-radius-medium:5px;
+--spacing-ultrasmall:5px;
 --spacing-small:10px;
 --spacing-medium:20px;
 --spacing-large:30px;
 
+--margin-list:7px;
 --font-bold:600;
 --transition:.4s;
 --font-family-main:sans-serif;

@@ -21,10 +21,9 @@ const PeoplePage = ({ setErrorApi }) => {
   const [counterPage, setCounterPage] = useState(1);
   const query = useQueryParams();
   const queryPage = query.get("page");
-  // console.log(queryPage, prevPage, nextPage);
+
   const getResource = async (url) => {
-    const res = await getApiResource(url);
-    // console.log(res);
+  const res = await getApiResource(url);
     if (res) {
       const peopleList = res.results.map(({ name, url }) => {
         const id = getPeopleId(url);
@@ -40,7 +39,6 @@ const PeoplePage = ({ setErrorApi }) => {
       setNextPage(changeHTTP(res.next));
       setCounterPage(getPeoplePageId(url));
       setErrorApi(false);
-      console.log(res.previous)
     } else {
       setErrorApi(true);
     }
