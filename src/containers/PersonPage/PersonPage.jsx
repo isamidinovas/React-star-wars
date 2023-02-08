@@ -14,20 +14,26 @@ import UiLoading from "../../components/Ui/UiLoading";
 import { API_PERSON } from "../../constants/api";
 import { getApiResource } from "../../utils/network";
 import { getPeopleImage } from "../../services/getPeopleData";
+import { useSelector } from "react-redux";
 
 const PersonFilms = React.lazy(() =>
   import("../../components/PersonPage/PersonFilms/PersonFilms")
 );
 const PersonPage = ({ match, setErrorApi }) => {
+  const [personId, setPersonId] = useState(null);
   const [personInfo, setPersonInfo] = useState(null);
   const [personName, setPersonName] = useState(null);
   const [personPhoto, setPersonPhoto] = useState(null);
   const [personFilms, setPersonFilms] = useState(null);
+  const [personFavorite, setPersonFavorite] = useState(false);
+  const storeData = useSelector((state) => state.favoriteReducer);
+
   const { id } = useParams();
   useEffect(() => {
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}/`);
-
+      storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
+      setPersonId(id);
       if (res) {
         setPersonInfo([
           { title: "Height", data: res.height },
@@ -55,7 +61,13 @@ const PersonPage = ({ match, setErrorApi }) => {
       <div className={styles.wrapper}>
         <span className={styles.person__name}>{personName}</span>;
         <div className={styles.container}>
-          <PersonPhoto personPhoto={personPhoto} personName={personName} />
+          <PersonPhoto
+            personId={personId}
+            personPhoto={personPhoto}
+            personName={personName}
+            personFavorite={personFavorite}
+            setPersonFavorite={setPersonFavorite}
+          />
           {personInfo && <PersonInfo personInfo={personInfo} />}
           {personFilms && (
             <Suspense fallback={<UiLoading theme="white" isShadow />}>
