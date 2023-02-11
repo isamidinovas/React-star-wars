@@ -3,6 +3,7 @@ import HomePage from "../containers/HomePage/HomePage";
 import NotFoundPage from "../containers/NotFoundPage";
 import PeoplePage from "../containers/PeoplePage/PeoplePage";
 import PersonPage from "../containers/PersonPage/PersonPage";
+import SearchPage from "../containers/SearchPage";
 const routesConfig = [
   {
     path: "/",
@@ -27,6 +28,10 @@ const routesConfig = [
   {
     path: "*",
     element: <NotFoundPage />,
+  },
+  {
+    path: "/search",
+    element: <SearchPage />,
   },
 ];
 

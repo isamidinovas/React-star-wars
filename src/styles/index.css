@@ -54,6 +54,10 @@
 --theme-neitral-bgimage: url('../static/bg.jpg');
 --theme-default-bgimage:var(--theme-neitral-bgimage)
 }
+*, *:after,*::before{
+  box-sizing: border-box;
+}
+
 body{
   margin: 0;
   padding: 0;
