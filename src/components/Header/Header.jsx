@@ -48,6 +48,9 @@ const Header = () => {
         <li>
           <NavLink to="/search">Search</NavLink>
         </li>
+        <li>
+          <NavLink to="/fail">Fail</NavLink>
+        </li>
       </ul>
       <Favorite />
     </div>
